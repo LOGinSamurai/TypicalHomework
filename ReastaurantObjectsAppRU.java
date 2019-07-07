@@ -2,18 +2,19 @@
 public class ReastaurantObjectsAppRU {
 
 	public static void main(String[] args) {
-		// TODO Auto-generated method stub
 
+		Aliment D = new Drink(null, null, 0);
+       D.getName();
 	}
 
 }
-//предположим есть 3 класса
-//что-то что можно употреблять как пища
-//1) добавить constructor,setters,getters,tostring
+//РїСЂРµРґРїРѕР»РѕР¶РёРј РµСЃС‚СЊ 3 РєР»Р°СЃСЃР°
+//С‡С‚Рѕ-С‚Рѕ С‡С‚Рѕ РјРѕР¶РЅРѕ СѓРїРѕС‚СЂРµР±Р»СЏС‚СЊ РєР°Рє РїРёС‰Р°
+//1) РґРѕР±Р°РІРёС‚СЊ constructor,setters,getters,tostring
 class Aliment{
  private String name;
- private String price;
-public Aliment(String name, String price) {
+ private float price;
+public Aliment(String name, float price) {
 	this.name = name;
 	this.price = price;
 }
@@ -23,10 +24,10 @@ public String getName() {
 public void setName(String name) {
 	this.name = name;
 }
-public String getPrice() {
+public float getPrice() {
 	return price;
 }
-public void setPrice(String price) {
+public void setPrice(float price) {
 	this.price = price;
 }
 @Override
@@ -41,7 +42,7 @@ class Food extends Aliment{
  private double weight;    
  // kg
 
-public Food(String name, String price, double weight) {
+public Food(String name, float price, double weight) {
 	super(name, price);
 	this.weight = weight;
 }
@@ -67,7 +68,7 @@ class Drink extends Aliment{
  private double volume;  
  // L
 
-public Drink(String name, String price, double volume) {
+public Drink(String name, Float price, double volume) {
 	super(name, price);
 	this.volume = volume;
 }
@@ -88,31 +89,46 @@ public String toString() {
 }
 
 
-//есть так же класс места где это все подают
-//допишите логику так чтобы
-//2) в массив с пищей воявилось 6 обьектов (3 - напитки / 3 - еда  )
-//3) printMenu() вывел на экран перечень всех пунтков
-//4) printMenu(int,int) вывел на экран перечень всех пунтков меню с этим диапазоном стоимости!
+//РµСЃС‚СЊ С‚Р°Рє Р¶Рµ РєР»Р°СЃСЃ РјРµСЃС‚Р° РіРґРµ СЌС‚Рѕ РІСЃРµ РїРѕРґР°СЋС‚
+//РґРѕРїРёС€РёС‚Рµ Р»РѕРіРёРєСѓ С‚Р°Рє С‡С‚РѕР±С‹
+//2) РІ РјР°СЃСЃРёРІ СЃ РїРёС‰РµР№ РІРѕСЏРІРёР»РѕСЃСЊ 6 РѕР±СЊРµРєС‚РѕРІ (3 - РЅР°РїРёС‚РєРё / 3 - РµРґР°  )
+//3) printMenu() РІС‹РІРµР» РЅР° СЌРєСЂР°РЅ РїРµСЂРµС‡РµРЅСЊ РІСЃРµС… РїСѓРЅС‚РєРѕРІ
+//4) printMenu(int,int) РІС‹РІРµР» РЅР° СЌРєСЂР°РЅ РїРµСЂРµС‡РµРЅСЊ РІСЃРµС… РїСѓРЅС‚РєРѕРІ РјРµРЅСЋ СЃ СЌС‚РёРј РґРёР°РїР°Р·РѕРЅРѕРј СЃС‚РѕРёРјРѕСЃС‚Рё!
 class Restaurant{
  private String name;
- private Aliment[] menu;  // список блюд и напитков (ПОЛИМОРФИЗМ!)
- public Restaurant(String name){
+ private Aliment[] menu; 
+ Drink d;
+ Food f;// СЃРїРёСЃРѕРє Р±Р»СЋРґ Рё РЅР°РїРёС‚РєРѕРІ (РџРћР›РРњРћР Р¤РР—Рњ!)
+ public Restaurant(String name ){
      this.name = name;
-     this.menu = new Aliment[6]; // резервируем 6 пунтков меню!
-     // первые 3 - напитки
+     this.menu = new Aliment[6]; // СЂРµР·РµСЂРІРёСЂСѓРµРј 6 РїСѓРЅС‚РєРѕРІ РјРµРЅСЋ!
+     // РїРµСЂРІС‹Рµ 3 - РЅР°РїРёС‚РєРё
      for(int i = 0; i < 3; i++){
-         this.menu[i] = new Drink(Drink.classgetName(), getPrice(), GetVolume());
+         this.menu[i] = new Drink(d.getName(), d.getPrice(), d.getVolume());
      }
-     // след 3 - еда
-     for(int i = 0; i < 3; i++){
-         this.menu[i] = new Food(????);
+     // СЃР»РµРґ 3 - РµРґР°
+     for(int i = 3; i < 6; i++){
+         this.menu[i] = new Food(f.getName(), f.getPrice(), f.getWeight());
      }
  }
  public void printMenu(){
-     ???
+	 for(int i = 0; i <6; i++){
+         System.out.println(this.menu[i]);
+ }
  }
  public void printMenu(int min_price,int max_price){
-     ???
+	 if(d.getPrice()<min_price&&d.getPrice()>max_price){
+ 
+	 for(int i = 0; i <3; i++){
+         System.out.println(this.menu[i]);
+	 } 
+	 if(f.getPrice()<min_price&&f.getPrice()>max_price){
+		 
+		 for(int i = 3; i <6; i++){
+	         System.out.println(this.menu[i]);
+		 } 
+ }else{System.out.println("");}
  }
+}
  
 }
