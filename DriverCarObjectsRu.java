@@ -1,10 +1,9 @@
-
-public class DriverCarObjectsRu {
+ public class DriverCarObjectsRu {
 
 	public static void main(String[] args) {
-		 Driver my_friend = new Driver("Vasile Vasilievici",1960);//создается новый бьект класса Driver
-         my_friend.setCar( new Car("BMW",2000,(float)2.4,240,10000) );//свойству Car обьекта класса Driver присваются новые значения
-         System.out.println( my_friend );//на экран выводится все свойства и методы оьекта my_friend
+		 Driver my_friend = new Driver("Vasile Vasilievici",1960);//СЃРѕР·РґР°РµС‚СЃСЏ РЅРѕРІС‹Р№ Р±СЊРµРєС‚ РєР»Р°СЃСЃР° Driver
+         my_friend.setCar( new Car("BMW",2000,(float)2.4,240,10000) );//СЃРІРѕР№СЃС‚РІСѓ СЃar РѕР±СЊРµРєС‚Р° РєР»Р°СЃСЃР° Driver РїСЂРёСЃРІР°СЋС‚СЃСЏ РЅРѕРІС‹Рµ Р·РЅР°С‡РµРЅРёСЏ
+         System.out.println( my_friend );//РЅР° СЌРєСЂР°РЅ РІС‹РІРѕРґРёС‚СЃСЏ РІСЃРµ СЃРІРѕР№СЃС‚РІР° Рё РјРµС‚РѕРґС‹ РѕСЊРµРєС‚Р° my_friend
 	}
 
 }
@@ -14,8 +13,8 @@ class Car{
     private  float volume;      // 1.2 .. 3.6 L
     private    int max_speed;   // 60 .. 300  km/h
     private    int price;       // 5000 .. 1000000 Euro
-    // добавить contructor,set/get,toString
-    // ограничения свойств написаны рядом 
+    // РґРѕР±Р°РІРёС‚СЊ contructor,set/get,toString
+    // РѕРіСЂР°РЅРёС‡РµРЅРёСЏ СЃРІРѕР№СЃС‚РІ РЅР°РїРёСЃР°РЅС‹ СЂСЏРґРѕРј 
 	public Car(String model, int year, float volume, int max_speed, int price) {
 		if(model=="BMW"|| model=="Mercedes" || model=="Ford") {
 		this.model =  model;}else{System.out.println("Wrong model pal");}
@@ -76,9 +75,9 @@ class Car{
 	
 }
 class Driver{
-    private String name;   // "Ion Petru" (как минимум 5 сивмоловб внутри должен быть 1 пробел смтр. класс String)
+    private String name;   // "Ion Petru" (РєР°Рє РјРёРЅРёРјСѓРј 5 СЃРёРІРјРѕР»РѕРІР± РІРЅСѓС‚СЂРё РґРѕР»Р¶РµРЅ Р±С‹С‚СЊ 1 РїСЂРѕР±РµР» СЃРјС‚СЂ. РєР»Р°СЃСЃ String)
     private int    year;   // 1900 .. 2000
-    private Car    car;    // ссылка на обьект из класса Car
+    private Car    car;    // СЃСЃС‹Р»РєР° РЅР° РѕР±СЊРµРєС‚ РёР· РєР»Р°СЃСЃР° Car
 	public Driver(String name, int year, Car car) {
 		if(name.length()>5 && name.contains(" ")){
 		this.name = name;}else{System.out.println("Wrong name format pal");}
@@ -130,16 +129,16 @@ class Driver{
 	
 	
     
-    // добавить contructor,set/get,toString
-    // ограничения свойств написаны рядом 
-    // * примечания
-    //      - конструктор Driver не дожен назначать сразу автомобиль - только имя и год рождения
-    //        может же быть водитель без авто?
-    //      - setter для свойства "car" должен принимать только авто марки "BMW" или "Mercedes" ;)
-    //      - toString выдает как данные драйвера так и автомобиля на котором он ездит 
+    // РґРѕР±Р°РІРёС‚СЊ contructor,set/get,toString
+    // РѕРіСЂР°РЅРёС‡РµРЅРёСЏ СЃРІРѕР№СЃС‚РІ РЅР°РїРёСЃР°РЅС‹ СЂСЏРґРѕРј 
+    // * РїСЂРёРјРµС‡Р°РЅРёСЏ
+    //      - РєРѕРЅСЃС‚СЂСѓРєС‚РѕСЂ Driver РЅРµ РґРѕР¶РµРЅ РЅР°Р·РЅР°С‡Р°С‚СЊ СЃСЂР°Р·Сѓ Р°РІС‚РѕРјРѕР±РёР»СЊ - С‚РѕР»СЊРєРѕ РёРјСЏ Рё РіРѕРґ СЂРѕР¶РґРµРЅРёСЏ
+    //        РјРѕР¶РµС‚ Р¶Рµ Р±С‹С‚СЊ РІРѕРґРёС‚РµР»СЊ Р±РµР· Р°РІС‚Рѕ?
+    //      - setter РґР»СЏ СЃРІРѕР№СЃС‚РІР° "car" РґРѕР»Р¶РµРЅ РїСЂРёРЅРёРјР°С‚СЊ С‚РѕР»СЊРєРѕ Р°РІС‚Рѕ РјР°СЂРєРё "BMW" РёР»Рё "Mercedes" ;)
+    //      - toString РІС‹РґР°РµС‚ РєР°Рє РґР°РЅРЅС‹Рµ РґСЂР°Р№РІРµСЂР° С‚Р°Рє Рё Р°РІС‚РѕРјРѕР±РёР»СЏ РЅР° РєРѕС‚РѕСЂРѕРј РѕРЅ РµР·РґРёС‚ 
 }
 
 
-  // допишите код чтобы работал
-  // и попытайтесь озвучить то что происходит в main()
+  // РґРѕРїРёС€РёС‚Рµ РєРѕРґ С‡С‚РѕР±С‹ СЂР°Р±РѕС‚Р°Р»
+  // Рё РїРѕРїС‹С‚Р°Р№С‚РµСЃСЊ РѕР·РІСѓС‡РёС‚СЊ С‚Рѕ С‡С‚Рѕ РїСЂРѕРёСЃС…РѕРґРёС‚ РІ main()
   
