@@ -31,7 +31,7 @@ public class FindFoodArrayApp {
 			//else {System.out.println("***");}
 			 
 		}
-		System.out.println();
+		
 	
 	 
 		
