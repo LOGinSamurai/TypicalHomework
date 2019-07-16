@@ -1,4 +1,4 @@
- import java.util.Arrays;
+  java.util.Arrays;
 
 public class ArrayOfSeries{
     public static void main(String[] args){
@@ -35,65 +35,63 @@ public class ArrayOfSeries{
 
 // предположим у нас есть класс "сериал"
 class Series {
-	private int season_number;
     private String category;          // название категории сериала
     private String name;              // Название                     - Ме меньше 2 символов
-    private Season[] seasons;// массив с сезонами этого сериала, на индексе 0 - находится сезон 1
-	public Series(String category, String name, Season[] seasons) {
-	 
+    private Season[] seasons = new Season[3]; 
+    private Integer seasons_number;// массив с сезонами этого сериала, на индексе 0 - находится сезон 1
+    
+	public Series(String category, String name, Integer seasons_number) {
 		this.category = category;
-		if(name.length()<2){System.err.println("wrong format");}else{
+		if(name.length()<2){System.out.println("Error");}else {
 		this.name = name;}
-		this.seasons = seasons;
-	
-	}
-	
-	public Series(String category, String name, int season_number) {
-		this.season_number=season_number;
-		this.category = category;
-		this.name = name;
-	}
-	
-
-	public int getSeason_number() {
-		return season_number;
-	}
-
-	public void setSeason_number(int season_number) {
-		this.season_number = season_number;
+		this.seasons_number = seasons_number;
 	}
 
 	public String getCategory() {
 		return category;
 	}
+
 	public void setCategory(String category) {
-	
-			this.category = category;
+		this.category = category;
 	}
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
-		if(name.length()<2){System.err.println("wrong format");}else{
-		this.name = name;}
-	}
-	public Season[] getSeasons() {
-		return seasons;
-	}
-	
-	public void setSeasons(Season[] seasons) {
-		this.seasons = seasons;
-	}
-	public void setSeason(Integer index,Season seasons) {
-		this.seasons[index] = seasons;
-	}
-	
-	public Season getSeason(Integer index) {
-		return this.seasons[index];
+		if(name.length()<2){System.out.println("Error");}else {
+			this.name = name;}
 	}
 
+	public Integer getSeasons_number() {
+		return seasons_number;
+	}
+
+	public void setSeasons_number(Integer seasons_number) {
+		this.seasons_number = seasons_number;
+	}
+	public Season getSeason (Integer index) {
+		return seasons[index];
+	}
 	
-    
+	public void setSeason (Integer index, Season season) {
+		seasons[index]=season;
+	}
+	
+	@Override
+	public String toString() {
+	return getName()
+		   +"\n"+seasons[1].getName()
+	       +"\n"+seasons[1].getEpisode(1)+"  "+"["+seasons[1].getEpisode(1).getDuration()+"]"
+		   +"\n"+seasons[1].getEpisode(2)+"  "+"["+seasons[1].getEpisode(2).getDuration()+"]"
+		   +"\n"+seasons[1].getEpisode(3)+"  "+"["+seasons[1].getEpisode(3).getDuration()+"]"
+		   +"\n"+"..."
+		   +"\n"+seasons[2].getEpisode(1)+"  "+"["+seasons[2].getEpisode(1).getDuration()+"]"
+		   +"\n"+seasons[2].getEpisode(2)+"  "+"["+seasons[2].getEpisode(2).getDuration()+"]"
+		   +"\n"+seasons[2].getEpisode(3)+"  "+"["+seasons[2].getEpisode(3).getDuration()+"]";
+	}
+	
     // добавить конструктор + сеттеры / геттеры
     // добавить правила для проверки (используя String.length() / if/else)
     // добавить "setSeason(Integer index, Season season)" который установит обьект
@@ -113,83 +111,58 @@ class Series {
 }
 // класс "сезон"
 class Season {
-	private int duration;
-	private  int episode_number;
     private Series series;          // обратная ссылка на обьект сериала
     private String name;            // Название                     - Ме меньше 2 символов
-    private Episode[] episodes;// массив с сериями этого сезона, на индексе 0 - находится серия 1
-    Episode episode; 
-	public Season(Series series, String name, Episode[] episodes) {
-		this.series = series;
-		if(name.length()<2){System.err.println("wrong format");}else{
+    private Integer episodes_number;
+    private Episode[] episodes=new Episode[3];     // массив с сериями этого сезона, на индексе 0 - находится серия 1
+	private Integer season_duration;
+    
+    public Season(String name, Integer episodes_number) {
+    	if(name.length()<2){System.out.println("Error");}else {
 			this.name = name;}
-		this.episodes = episodes;
-	}
-	 
-	 
-
-
-	public Season(  String name ,int episode_number) {
-	this.episode_number = episode_number;
-	if(name.length()<2){System.err.println("wrong format");}else{
-		this.name = name;}
-	}
-	
-    public int getEpisode_number() {
-		return episode_number;
+		this.episodes_number = episodes_number;
 	}
 
-
-	public void setEpisode_number(int episode_number) {
-		this.episode_number = episode_number;
-	}
-
-
-	public Series getSeries() {
-		return series;
-	}
-	public void setSeries(Series series) {
-		this.series = series;
-	}
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
-		if(name.length()<2){System.err.println("wrong format");}else{
+		if(name.length()<2){System.out.println("Error");}else {
 			this.name = name;}
 	}
-	public Episode[] getEpisodes() {
-		return episodes;
-	}
-	public void setEpisodes(Episode[] episodes) {
-		this.episodes = episodes;
-	}
-	public void setEpisode(Integer index, Episode episode) {
-		this.episodes[index] = episode;
+
+	public Integer getEpisodes_number() {
+		return episodes_number;
 	}
 
-	public void setEpisode(Integer index, Episode episode, Integer duration) {
-		this.episodes[index] = episode;
-		 this.duration+=episode.getDuration();
-		
-	
+	public void setEpisodes_number(Integer episodes_number) {
+		this.episodes_number = episodes_number;
 	}
-	public int getDuration(){
-	 
-		return this.duration;  }
-		
-    public void setDuration(){
-    	this.duration+=episode.getDuration()* getEpisode_number();
-		
-		
+	public Episode getEpisode(Integer index){
+		return episodes[index];
 	}
+	public void setEpisode(Integer index, Episode episode,Integer episode_duration) {
+		episode.setDuration(episode_duration);
+		this.episodes[index]=episode;
+	}
+	public Integer getDuration() {
+		return this.season_duration;
+	}
+	public void setDuration(Episode episode) {
+		for(int i = 0;i<episodes.length;i++){
+		this.season_duration+=episodes[i].getDuration();
+		}
+	}
+
 	@Override
 	public String toString() {
-		return getName()+"\n"+getName()+" "+getDuration();
+		return getName()+"\n"+getEpisode(1)+"  "+"["+episodes[1].getDuration()
+		   +"\n"+getEpisode(2)+"  "+"["+episodes[2].getDuration()+"]"
+		   +"\n"+getEpisode(3)+"  "+"["+episodes[3].getDuration()+"]";
 	}
-	 
 	
-	
+    
     
     // добавить конструктор + сеттеры / геттеры
     // добавить правила для проверки (используя String.length() / if/else)
@@ -210,46 +183,38 @@ class Episode {
     private Season season;          // обратная ссылка на обьект сезона
     private String name;            // Название                     - Ме меньше 2 символов
     private Integer duration;       // продолжительность в минутах! - от 15 до 100 минут
-	public Episode(Season season, String name, Integer duration) {
-		this.season = season;
-		if(name.length()<2){System.err.println("wrong format");}else{
-			this.name = name;}
-		this.duration = duration;
-	}
+    
 	public Episode(String name) {
-		if(name.length()<2){System.err.println("wrong format");}else{
+		if(name.length()<2){System.out.println("Error");}else {
 			this.name = name;}
-		
 	}
-	public Season getSeason() {
-		return season;
-	}
-	public void setSeason(Season season) {
-		this.season = season;
-	}
+
 	public String getName() {
 		return name;
 	}
+
 	public void setName(String name) {
-		if(name.length()<2){System.err.println("wrong format");}else{
+		if(name.length()<2){System.out.println("Error");}else {
 			this.name = name;}
 	}
+
 	public Integer getDuration() {
 		return duration;
 	}
+
 	public void setDuration(Integer duration) {
-		if(duration>100&&duration<15){System.err.println("wrong format");}else {
+		if(duration<15||duration>100){System.out.println("Error");}else {
 		this.duration = duration;}
 	}
+
 	@Override
 	public String toString() {
-		return getName()+" "+getDuration();
+		return "\"" + getName() + "\"  [" + getDuration() + "]";
 	}
-	
-    
     
     // добавить конструктор + сеттеры / геттеры
     // добавить правила для проверки (используя String.length() / if/else)
     // добавить toString() он должен возвращать строку в таком формате
     // > "Episode Title"    [00:45]
 
+}
