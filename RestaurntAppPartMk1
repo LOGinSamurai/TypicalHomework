@@ -1,0 +1,29 @@
+import java.util.ArrayList;
+
+public class Restaurant {
+	public String name;
+	
+	ArrayList<Food> menu;
+
+	public Restaurant(String name) {
+		this.name = name;
+		
+		this.menu = new ArrayList<Food>();
+		
+	}
+	public void addFood(Food f){
+		if(this.menu.contains(f)){
+			System.out.println("alreadyexists");
+		}
+		else{this.menu.add( f );}
+		
+	}
+	@Override
+	public String toString() {
+		return "Restaurant \"" + name + "\" \n\n" + menu.toString()
+		                                                .replaceAll(",","")
+		                                                .replaceAll("\\[","")//regex
+		                                                .replaceAll("\\]","");
+	}
+	
+}
