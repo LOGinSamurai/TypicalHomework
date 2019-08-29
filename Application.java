@@ -1,39 +1,24 @@
-import com.github.javafaker.Faker;
-import java.util.Locale;
+
+ import java.util.Scanner;
 public class Application {
-
-	public static void main(String[] args) {
-		Student s1 = new Student("Ion Studentin",20, "Chishinau,Sudentilor");
-		System.out.println(s1);
-		Student s2 = new Student();
-		System.out.println(s2);
-	}
-
+	
+      public static void main(String[] args){
+    	 
+    	  Scanner in = new Scanner(System.in);
+    	  
+    	  
+	Restaurant good_restaurant = new Restaurant("La Java");
+	             good_restaurant.addFood(new Food("Pizza 4 formage",500,75.00f));
+	             good_restaurant.addFood(new Food("Burger King",250,65.00f));
+	             good_restaurant.addFood(new Food("Salad",900,45.00f));
+	             good_restaurant.addFood(new Food("Salad",900,45.00f));
+	System.out.println(good_restaurant );
+	
+	System.out.println("Which food do you want?");
+	String fname = in.nextLine();
+	System.out.println(good_restaurant.getPriceof(fname));
+	System.out.println( good_restaurant.getCheapestFood());
+	System.out.println( good_restaurant.getExpensiveFood());
+	
 }
-
-class Student {
-	public String fullname;
-	public int age;
-	public String address;
-	
-	public Student(){
-		//Generate fake data
-		Faker f = new Faker(new Locale("ru"));
-		this.fullname = f.name().fullName();
-		this.address = f.address().fullAddress();
-		this.age = f.random().nextInt(18,25);
-	}
-	public Student(String fullname, int age, String address) {
-		super();
-		this.fullname = fullname;
-		this.age = age;
-		this.address = address;
-	}
-	
-
-	public String toString() {
-		return "Student [\nfullname=" + fullname + ", \nage=" + age + ", \naddress=" + address + "\n]";
-	}
-	
-	
 }
