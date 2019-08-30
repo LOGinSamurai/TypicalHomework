@@ -1,4 +1,4 @@
- import java.util.HashSet;
+  import java.util.HashSet;
 
 public class Restaurant {
 	public String name;
@@ -36,34 +36,29 @@ public class Restaurant {
 	
 	
 
-	public String getCheapestFood(){
-		 Float a = 1000000.00f;
-		  
+	public Food getCheapestFood(){
+		Food food_cheap = null;		  
 		for (Food food : menu) {
-			  if(a>food.price){a=food.price;}
-			  
+			  if( food_cheap == null || food.price < food_cheap.price )
+			  {food_cheap = food;}
 		}
-		for (Food food : menu) {
-			if(a.equals(food.price)){return food.name +" "+food.price;}
-			
-		} 
-	   return null;
+	   return food_cheap;
 	   }
 		
-		 
-	 public String getExpensiveFood(){
-		 Float a = 0.00f;
-		 for (Food food : menu) {
-			  if(a<food.price){a=food.price;}
-			  
-		}
+
+	public Food getExpensiveFood(){
+		Food food_cheap = null;		  
 		for (Food food : menu) {
-			if(a.equals(food.price)){return food.name +" "+food.price;}
-			
-		} 
-	   return null;
+			  if( food_cheap == null || food.price > food_cheap.price )
+			  {food_cheap = food;}
+		}
+	   return food_cheap;
 	   }
+ 
 	}
+	
+	
+
 	
 	
 
