@@ -16,9 +16,9 @@ public class Application {
 	
 	System.out.println("Which food do you want?");
 	String fname = in.nextLine();
-	System.out.println(good_restaurant.getPriceof(fname));
-	System.out.println( good_restaurant.getCheapestFood());
-	System.out.println( good_restaurant.getExpensiveFood());
+	System.out.print(good_restaurant.getPriceof(fname));
+	System.out.print( good_restaurant.getCheapestFood());
+	System.out.print( good_restaurant.getExpensiveFood());
 	
 }
 }
