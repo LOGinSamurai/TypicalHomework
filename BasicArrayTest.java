@@ -1,3 +1,6 @@
+//РІСЃРµ РІСЂРѕРґРµ Р±С‹ СЃРґРµР»Р°Р» РЅРѕ РІРѕС‚ С‚РѕР»СЊРєРѕ РїРµСЂР°С‚РѕСЂ РёС„ РІ 29 С‚РѕР№ СЃС‚СЂРѕРєРµ РїРѕС‡СѓРјСѓ С‚Рѕ РІСЃРµРіРґР° РІС‹РґРµС‚ false
+//Рё СЃРєР°РЅРЅРµСЂ РІ 42 СЂРѕР№ С‚Р°Рє Р¶Рµ РЅРµ СЂР°Р±РѕС‚Р°РµС‚, С‡С‚Рѕ РєР°Рє Р±С‹ СЂСѓС€РёС‚ РІСЃСЋ РїСЂРѕРіСЂР°РјРјСѓ)
+//РїРѕРґСЃРєР°Р¶РёС‚Рµ С‡С‚Рѕ СЃ РЅРёРјРё РЅРµ С‚Р°Рє
 import java.util.Scanner;
 public class BasicArrayTest {
 
@@ -23,23 +26,23 @@ boolean a = true;
   
 	
 while(a==true) {
-	System.out.println("Желаете збронировать место?");
+	System.out.println("Р–РµР»Р°РµС‚Рµ Р·Р±СЂРѕРЅРёСЂРѕРІР°С‚СЊ РјРµСЃС‚Рѕ?");
 	String yes = in.nextLine();
-	if(yes!="да"){a=false;}
+	if(yes!="РґР°"){a=false;}
 	
-	 System.out.println("Введите номер места");
+	 System.out.println("Р’РІРµРґРёС‚Рµ РЅРѕРјРµСЂ РјРµСЃС‚Р°");
 	int num = in.nextInt();
-System.out.println("Введите ряд места");
+System.out.println("Р’РІРµРґРёС‚Рµ СЂСЏРґ РјРµСЃС‚Р°");
 	int row = in.nextInt();
 	 
-	  if(num==0){System.out.println("такого места не существует");}else{ num=num-1;}
-	  if(row==0){System.out.println("такого ряда не существует");}else{ row=row-1;}
-	 if (room[row][num]==-1||room[row][num]==1){System.out.println("Место недоступно");}
-	 else{System.out.println("Стоимость места: "+price[row]+"lei");};
-System.out.println("Подвердить покупку?");
+	  if(num==0){System.out.println("С‚Р°РєРѕРіРѕ РјРµСЃС‚Р° РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚");}else{ num=num-1;}
+	  if(row==0){System.out.println("С‚Р°РєРѕРіРѕ СЂСЏРґР° РЅРµ СЃСѓС‰РµСЃС‚РІСѓРµС‚");}else{ row=row-1;}
+	 if (room[row][num]==-1||room[row][num]==1){System.out.println("РњРµСЃС‚Рѕ РЅРµРґРѕСЃС‚СѓРїРЅРѕ");}
+	 else{System.out.println("РЎС‚РѕРёРјРѕСЃС‚СЊ РјРµСЃС‚Р°: "+price[row]+"lei");};
+System.out.println("РџРѕРґРІРµСЂРґРёС‚СЊ РїРѕРєСѓРїРєСѓ?");
 
 	String str = in.nextLine();
-	 if(str=="Да"){room[row][num]=1;}
+	 if(str=="Р”Р°"){room[row][num]=1;}
 	 
 	 for(int j = 0;j<5;j++){
 		for(int i = 0;i<8;i++){
@@ -55,9 +58,9 @@ System.out.println("Подвердить покупку?");
 				if(room[j][i]==0){k++;}
 			} 
 		 }
-	 System.out.println("Количество свободных мест: " + k);
+	 System.out.println("РљРѕР»РёС‡РµСЃС‚РІРѕ СЃРІРѕР±РѕРґРЅС‹С… РјРµСЃС‚: " + k);
 	 
 }
-if(a==false){System.out.println("Досвидания");}
+if(a==false){System.out.println("Р”РѕСЃРІРёРґР°РЅРёСЏ");}
 }
 }
