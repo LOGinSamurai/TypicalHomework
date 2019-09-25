@@ -1,7 +1,4 @@
-//все вроде бы сделал но вот только ператор иф в 31 той строке почуму то всегда выдет false
-//и сканнер в 44 рой так же не работает, что как бы рушит всю программу)
-//подскажите что с ними не так
-import java.util.Scanner;
+ import java.util.Scanner;
 public class BasicArrayTest {
 
 	public static void main(String[] args) {
@@ -20,15 +17,16 @@ int[]   price = {
 			       75,
 			       50
 			     };
-	Scanner in = new Scanner(System.in); 
+	Scanner in = new Scanner(System.in);
+	Scanner in01 = new Scanner(System.in);
 	
 boolean a = true;
   
 	
 while(a==true) {
 	System.out.println("Желаете збронировать место?");
-	String yes = in.nextLine();
-	if(yes!="да"){a=false;}
+	String yes = in01.nextLine();
+	if(!yes.equals("да")){a=false;}
 	
 	 System.out.println("Введите номер места");
 	int num = in.nextInt();
@@ -41,8 +39,8 @@ System.out.println("Введите ряд места");
 	 else{System.out.println("Стоимость места: "+price[row]+"lei");};
 System.out.println("Подвердить покупку?");
 
-	String str = in.nextLine();
-	 if(str=="Да"){room[row][num]=1;}
+	String str = in01.nextLine();
+	 if(str.equals("да")){room[row][num]=1;}
 	 
 	 for(int j = 0;j<5;j++){
 		for(int i = 0;i<8;i++){
