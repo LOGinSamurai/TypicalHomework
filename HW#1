@@ -1,0 +1,70 @@
+java.util.Comparator
+import java.util.ArrayList;
+import java.util.function.Consumer;
+
+public class AnonimousClassApp {
+
+	public static void main(String[] args) {
+
+		// Consumer lambda
+		Consumer<Student> showPretty = s -> System.out.println( "------------------------------\n" + s + "------------------------------\n" );
+		
+		// Predicate lambda
+		Predicate<Student> Best = s-> s.getGoodMark();
+    
+		
+		ArrayList<Student> students = new ArrayList<Student>();
+		students.add(new Student("student#1", 8f));
+    students.add(new Student("student#2", 7f));
+    students.add(new Student("student#3", 9f));
+		
+		students
+			.stream()
+      .filter(Best)
+			.forEach( showPretty );
+
+	}
+
+}
+
+
+class Student {
+	
+	private String name;
+	private Float mark;
+  private Float mark;
+	
+	public Student(String name, Float mark) {
+		super();
+		this.name = name;
+		this.mark = mark;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+	public Float getMark() {
+		return mark;
+	}
+  
+  	public Float getGoodMark() {
+    if (mark>=8){result=mark}
+		return result;
+	}
+
+	public void setMark(Float mark) {
+		this.mark = mark;
+	}
+
+	@Override
+	public String toString() {
+		return "Student [name=" + name + ", mark=" + mark + "]";
+	}
+	
+	
+}
