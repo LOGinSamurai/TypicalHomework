@@ -32,7 +32,7 @@ class Student {
 	
 	private String name;
 	private Float mark;
-  private Float mark;
+        private Float result;
 	
 	public Student(String name, Float mark) {
 		super();
